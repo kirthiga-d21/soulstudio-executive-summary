@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soul Studio - Executive Summary</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div id="root"></div>
+    
+    <script type="text/babel">
+        const { TrendingUp, TrendingDown, AlertTriangle, CheckCircle, DollarSign, Users, Target, Zap, XCircle } = window.lucideReact || {};
+
+        const ExecutiveSummary = () => {
+          const formatCurrency = (value) => {
+            return new Intl.NumberFormat('en-GB', {
+              style: 'currency',
+              currency: 'GBP',
+              minimumFractionDigits: 0,
+              maximumFractionDigits: 0
+            }).format(Math.abs(value));
+          };
+
+          return (
+            <div className="min-h-screen bg-white p-8 max-w-[1200px] mx-auto">
+              {/* Header */}
+              <div className="border-b-4 border-red-600 pb-6 mb-6">
+                <div className="flex justify-between items-start">
+                  <div>
+                    <h1 className="text-3xl font-bold text-gray-900 mb-2">Executive Summary - CRITICAL</h1>
+                    <p className="text-lg text-gray-600">Soul Studio Limited</p>
+                    <p className="text-sm text-gray-500">London, United Kingdom</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-sm text-gray-500">Reporting Period</p>
+                    <p className="text-xl font-bold text-gray-900">September 2025</p>
+                    <p className="text-xs text-gray-400 mt-1">Generated: {new Date().toLocaleDateString()}</p>
+                    <div className="mt-2 px-3 py-1 bg-red-100 text-red-800 rounded-full text-xs font-bold">
+                      URGENT ACTION REQUIRED
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Crisis Alert Banner */}
+              <div className="bg-red-50 border-2 border-red-500 p-5 rounded-lg mb-6">
+                <div className="flex items-start gap-3">
+                  <svg className="w-6 h-6 text-red-600 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                  </svg>
+                  <div>
+                    <h3 className="text-lg font-bold text-red-900 mb-2">CRITICAL - IMMEDIATE FUNDING REQUIRED</h3>
+                    <p className="text-red-800 text-sm leading-relaxed">
+                      Soul Studio Limited is experiencing severe financial stress with negative equity of <span className="font-bold">-£776K</span> 
+                      and continuing operational losses. September 2025 showed a loss of <span className="font-bold">-£47.5K</span> with 
+                      negative gross margin of <span className="font-bold">-6.32%</span>. The company has <span className="font-bold">£73.6K</span> 
+                      in cash against <span className="font-bold">£848.6K</span> in current liabilities (current ratio: 0.087). 
+                      <span className="font-bold text-red-900"> Immediate capital injection of £200K-£300K and comprehensive operational 
+                      restructuring are essential to stabilize the business.</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Executive Overview */}
+              <div className="mb-6">
+                <h2 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
+                  <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  Executive Overview
+                </h2>
+                <div className="bg-blue-50 border-l-4 border-blue-600 p-4 rounded-r-lg">
+                  <p className="text-gray-800 leading-relaxed">
+                    September 2025 shows continued operational challenges with a loss of <span className="font-bold text-red-900">-£47.5K</span> 
+                    (net margin -104.92%) despite revenue of £45.2K. The company experienced negative gross margin of 
+                    <span className="font-bold text-red-900"> -6.32%</span>, indicating that cost of goods sold exceeds revenue. While the burn 
+                    rate has improved from £78.9K (July) to £44.6K (September), representing a 43.6% reduction, the company continues to consume 
+                    cash. With <span className="font-bold text-blue-900">£73.6K in cash</span> against £848.6K in liabilities, the business 
+                    requires immediate operational turnaround alongside emergency funding. The negative equity position of -£776K reflects 
+                    accumulated losses requiring comprehensive business model reassessment and capital restructuring.
+                  </p>
+                </div>
+              </div>
+
+              {/* Two Column Layout */}
+              <div className="grid grid-cols-2 gap-6 mb-6">
+                {/* Positive Indicators */}
+                <div>
+                  <h3 className="text-lg font-bold text-green-700 mb-3 flex items-center gap-2">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Positive Operational Trends
+                  </h3>
+                  <div className="space-y-2">
+                    <div className="flex items-start gap-2 bg-green-50 p-3 rounded-lg">
+                      <svg className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                      </svg>
+                      <div>
+                        <p className="font-semibold text-green-900 text-sm">Burn Rate Reduction</p>
+                        <p className="text-xs text-green-700">Operating expenses reduced 43.6% from £78.9K (July) to £44.6K (September)</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-2 bg-green-50 p-3 rounded-lg">
+                      <svg className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                      </svg>
+                      <div>
+                        <p className="font-semibold text-green-900 text-sm">Cash Position Improving</p>
+                        <p className="text-xs text-green-700">Cash increased from £40.2K (July) to £73.6K (September)</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-2 bg-green-50 p-3 rounded-lg">
+                      <svg className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                      </svg>
+                      <div>
+                        <p className="font-semibold text-green-900 text-sm">Cost Control Progress</p>
+                        <p className="text-xs text-green-700">Management demonstrating discipline in expense reduction</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-2 bg-green-50 p-3 rounded-lg">
+                      <svg className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                      </svg>
+                      <div>
+                        <p className="font-semibold text-green-900 text-sm">Reduced Operating Cash Burn</p>
+                        <p className="text-xs text-green-700">Operating cash outflow improved from -£19.2K to -£15.0K monthly</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Critical Issues */}
+                <div>
+                  <h3 className="text-lg font-bold text-red-700 mb-3 flex items-center gap-2">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Critical Business Issues
+                  </h3>
+                  <div className="space-y-2">
+                    <div className="flex items-start gap-2 bg-red-50 p-3 rounded-lg border-l-2 border-red-600">
+                      <svg className="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                      </svg>
+                      <div>
+                        <p className="font-semibold text-red-900 text-sm">Negative Gross Margin</p>
+                        <p className="text-xs text-red-700">-6.32% gross margin means COGS exceeds revenue - business model not viable</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-2 bg-red-50 p-3 rounded-lg border-l-2 border-red-600">
+                      <svg className="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                      </svg>
+                      <div>
+                        <p className="font-semibold text-red-900 text-sm">Continuous Operating Losses</p>
+                        <p className="text-xs text-red-700">£47.5K loss in September despite burn rate improvements</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-2 bg-red-50 p-3 rounded-lg border-l-2 border-red-600">
+                      <svg className="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                      </svg>
+                      <div>
+                        <p className="font-semibold text-red-900 text-sm">Severe Liquidity Crisis</p>
+                        <p className="text-xs text-red-700">Current ratio 0.087 with £73.6K cash vs. £848.6K liabilities</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-2 bg-red-50 p-3 rounded-lg border-l-2 border-red-600">
+                      <svg className="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                      </svg>
+                      <div>
+                        <p className="font-semibold text-red-900 text-sm">Accumulated Losses</p>
+                        <p className="text-xs text-red-700">Negative equity of -£776K reflects severe balance sheet deterioration</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Financial Snapshot */}
+              <div className="mb-6">
+                <h2 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
+                  <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  Financial Snapshot - September 2025
+                </h2>
+                <div className="grid grid-cols-4 gap-4">
+                  <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg border border-blue-200">
+                    <p className="text-xs text-blue-700 font-medium mb-1">Revenue</p>
+                    <p className="text-2xl font-bold text-blue-900">£45.2K</p>
+                    <p className="text-xs text-blue-600 mt-1">100% margin</p>
+                  </div>
+                  <div className="bg-gradient-to-br from-red-50 to-red-100 p-4 rounded-lg border border-red-200">
+                    <p className="text-xs text-red-700 font-medium mb-1">Gross Profit</p>
+                    <p className="text-2xl font-bold text-red-900">-£2.9K</p>
+                    <p className="text-xs text-red-600 mt-1">-6.32% margin</p>
+                  </div>
+                  <div className="bg-gradient-to-br from-red-50 to-red-100 p-4 rounded-lg border border-red-200">
+                    <p className="text-xs text-red-700 font-medium mb-1">Net Profit</p>
+                    <p className="text-2xl font-bold text-red-900">-£47.5K</p>
+                    <p className="text-xs text-red-600 mt-1">-104.92% margin</p>
+                  </div>
+                  <div className="bg-gradient-to-br from-orange-50 to-orange-100 p-4 rounded-lg border border-orange-200">
+                    <p className="text-xs text-orange-700 font-medium mb-1">Cash Balance</p>
+                    <p className="text-2xl font-bold text-orange-900">£73.6K</p>
+                    <p className="text-xs text-orange-600 mt-1">Critical Level</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Side by Side Metrics */}
+              <div className="grid grid-cols-2 gap-6 mb-6">
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-3">Operational Performance</h3>
+                  <div className="bg-gray-50 p-4 rounded-lg space-y-3">
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-gray-600">Gross Margin</span>
+                      <span className="font-bold text-red-600">-6.32%</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-gray-600">Operating Margin</span>
+                      <span className="font-bold text-red-600">-104.92%</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-gray-600">Monthly Burn Rate</span>
+                      <span className="font-bold text-orange-600">£44.6K</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-gray-600">Operating Cash Flow</span>
+                      <span className="font-bold text-red-600">-£15.0K</span>
+                    </div>
+                    <div className="flex justify-between items-center pt-2 border-t border-gray-300">
+                      <span className="text-sm font-semibold text-gray-700">Sep Loss (vs Jul)</span>
+                      <span className="font-bold text-green-600">50% improvement</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-3">Balance Sheet Health</h3>
+                  <div className="bg-gray-50 p-4 rounded-lg space-y-3">
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-gray-600">Current Ratio</span>
+                      <span className="font-bold text-red-600">0.087</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-gray-600">Quick Ratio</span>
+                      <span className="font-bold text-red-600">0.087</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-gray-600">Cash Position</span>
+                      <span className="font-bold text-orange-600">£73.6K</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-gray-600">Total Equity</span>
+                      <span className="font-bold text-red-600">-£776.0K</span>
+                    </div>
+                    <div className="flex justify-between items-center pt-2 border-t border-gray-300">
+                      <span className="text-sm font-semibold text-gray-700">Working Capital</span>
+                      <span className="font-bold text-red-600">-£775.0K</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Strategic Recommendations */}
+              <div className="mb-6">
+                <h2 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
+                  <svg className="w-5 h-5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                  Strategic Action Plan
+                </h2>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-orange-50 border-l-4 border-orange-600 p-4 rounded-r-lg">
+                    <p className="font-bold text-orange-900 mb-2 flex items-center gap-2">
+                      <span className="bg-orange-600 text-white text-xs px-2 py-1 rounded">MONTH 1</span>
+                      IMMEDIATE PRIORITIES
+                    </p>
+                    <ul className="space-y-1 text-sm text-orange-800">
+                      <li>• Secure growth capital (£100K-£200K) through equity or convertible notes</li>
+                      <li>• Initiate creditor negotiations for restructured payment terms</li>
+                      <li>• Maintain daily cash monitoring and forecasting discipline</li>
+                      <li>• Accelerate receivable collections to improve cash conversion</li>
+                      <li>• Prepare comprehensive business plan for investors/lenders</li>
+                    </ul>
+                  </div>
+                  <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
+                    <p className="font-bold text-blue-900 mb-2 flex items-center gap-2">
+                      <span className="bg-blue-600 text-white text-xs px-2 py-1 rounded">MONTH 2-3</span>
+                      STABILIZATION PHASE
+                    </p>
+                    <ul className="space-y-1 text-sm text-blue-800">
+                      <li>• Complete creditor payment restructuring with favorable terms</li>
+                      <li>• Establish working capital facility or revolving credit line</li>
+                      <li>• Sustain profitability through disciplined cost management</li>
+                      <li>• Build strategic partnerships for revenue diversification</li>
+                      <li>• Accumulate 45-60 day cash buffer from operations</li>
+                    </ul>
+                  </div>
+                  <div className="bg-green-50 border-l-4 border-green-500 p-4 rounded-r-lg">
+                    <p className="font-bold text-green-900 mb-2 flex items-center gap-2">
+                      <span className="bg-green-600 text-white text-xs px-2 py-1 rounded">MONTH 2-4</span>
+                      GROWTH ACCELERATION
+                    </p>
+                    <ul className="space-y-1 text-sm text-green-800">
+                      <li>• Scale revenue to £50K+ monthly with 90%+ gross margins</li>
+                      <li>• Target £5K+ consistent monthly net profits</li>
+                      <li>• Build cash reserves to 2-month operating expenses (£40K)</li>
+                      <li>• Consider additional equity raise for expansion capital</li>
+                      <li>• Strengthen balance sheet through retained earnings</li>
+                    </ul>
+                  </div>
+                  <div className="bg-purple-50 border-l-4 border-purple-500 p-4 rounded-r-lg">
+                    <p className="font-bold text-purple-900 mb-2 flex items-center gap-2">
+                      <span className="bg-purple-600 text-white text-xs px-2 py-1 rounded">MONTH 5-12</span>
+                      SUSTAINABLE GROWTH
+                    </p>
+                    <ul className="space-y-1 text-sm text-purple-800">
+                      <li>• Achieve consistent £8K+ monthly profits</li>
+                      <li>• Rebuild equity through sustained profitability</li>
+                      <li>• Secure growth capital for market expansion</li>
+                      <li>• Achieve current ratio >1.0 through cash generation</li>
+                      <li>• Return to positive equity position within 18 months</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Critical Decisions Box */}
+              <div className="bg-yellow-50 border-2 border-yellow-400 p-5 rounded-lg mb-6">
+                <h3 className="text-lg font-bold text-yellow-900 mb-3 flex items-center gap-2">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                  </svg>
+                  Critical Board Decisions Required (Next 30 Days)
+                </h3>
+                <div className="grid grid-cols-3 gap-4 text-sm">
+                  <div>
+                    <p className="font-bold text-orange-900 mb-2">1. Capital Raise Strategy</p>
+                    <p className="text-orange-800">Decision on: Equity investment, convertible notes, director loans, or asset-based lending to strengthen working capital and support growth</p>
+                    <p className="text-xs text-orange-700 mt-2 font-semibold">TARGET: £100K-£200K in 30 days</p>
+                  </div>
+                  <div>
+                    <p className="font-bold text-yellow-900 mb-2">2. Creditor Management</p>
+                    <p className="text-yellow-800">Negotiate extended payment terms with key creditors, structured payment plans, or potential debt-for-equity conversions</p>
+                    <p className="text-xs text-yellow-700 mt-2 font-semibold">TARGET: 90-day payment relief</p>
+                  </div>
+                  <div>
