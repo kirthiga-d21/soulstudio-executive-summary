@@ -13,16 +13,9 @@
     <div id="root"></div>
     
     <script type="text/babel">
+        const { useState } = React;
+        
         const ExecutiveSummary = () => {
-          const formatCurrency = (value) => {
-            return new Intl.NumberFormat('en-GB', {
-              style: 'currency',
-              currency: 'GBP',
-              minimumFractionDigits: 0,
-              maximumFractionDigits: 0
-            }).format(Math.abs(value));
-          };
-
           return (
             <div className="min-h-screen bg-white p-8 max-w-[1200px] mx-auto">
               <div className="border-b-4 border-red-600 pb-6 mb-6">
@@ -63,12 +56,7 @@
               </div>
 
               <div className="mb-6">
-                <h2 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
-                  <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  Executive Overview
-                </h2>
+                <h2 className="text-xl font-bold text-gray-900 mb-3">Executive Overview</h2>
                 <div className="bg-blue-50 border-l-4 border-blue-600 p-4 rounded-r-lg">
                   <p className="text-gray-800 leading-relaxed">
                     September 2025 shows continued operational challenges with a loss of <span className="font-bold text-red-900">-£47.5K</span> 
@@ -84,44 +72,27 @@
 
               <div className="grid grid-cols-2 gap-6 mb-6">
                 <div>
-                  <h3 className="text-lg font-bold text-green-700 mb-3 flex items-center gap-2">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    Positive Operational Trends
-                  </h3>
+                  <h3 className="text-lg font-bold text-green-700 mb-3">Positive Operational Trends</h3>
                   <div className="space-y-2">
                     <div className="flex items-start gap-2 bg-green-50 p-3 rounded-lg">
-                      <svg className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                      </svg>
                       <div>
                         <p className="font-semibold text-green-900 text-sm">Burn Rate Reduction</p>
                         <p className="text-xs text-green-700">Operating expenses reduced 43.6% from £78.9K (July) to £44.6K (September)</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-2 bg-green-50 p-3 rounded-lg">
-                      <svg className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                      </svg>
                       <div>
                         <p className="font-semibold text-green-900 text-sm">Cash Position Improving</p>
                         <p className="text-xs text-green-700">Cash increased from £40.2K (July) to £73.6K (September)</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-2 bg-green-50 p-3 rounded-lg">
-                      <svg className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                      </svg>
                       <div>
                         <p className="font-semibold text-green-900 text-sm">Cost Control Progress</p>
                         <p className="text-xs text-green-700">Management demonstrating discipline in expense reduction</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-2 bg-green-50 p-3 rounded-lg">
-                      <svg className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                      </svg>
                       <div>
                         <p className="font-semibold text-green-900 text-sm">Reduced Operating Cash Burn</p>
                         <p className="text-xs text-green-700">Operating cash outflow improved from -£19.2K to -£15.0K monthly</p>
@@ -131,44 +102,27 @@
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-bold text-red-700 mb-3 flex items-center gap-2">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    Critical Business Issues
-                  </h3>
+                  <h3 className="text-lg font-bold text-red-700 mb-3">Critical Business Issues</h3>
                   <div className="space-y-2">
                     <div className="flex items-start gap-2 bg-red-50 p-3 rounded-lg border-l-2 border-red-600">
-                      <svg className="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                      </svg>
                       <div>
                         <p className="font-semibold text-red-900 text-sm">Negative Gross Margin</p>
                         <p className="text-xs text-red-700">-6.32% gross margin means COGS exceeds revenue - business model not viable</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-2 bg-red-50 p-3 rounded-lg border-l-2 border-red-600">
-                      <svg className="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                      </svg>
                       <div>
                         <p className="font-semibold text-red-900 text-sm">Continuous Operating Losses</p>
                         <p className="text-xs text-red-700">£47.5K loss in September despite burn rate improvements</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-2 bg-red-50 p-3 rounded-lg border-l-2 border-red-600">
-                      <svg className="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                      </svg>
                       <div>
                         <p className="font-semibold text-red-900 text-sm">Severe Liquidity Crisis</p>
                         <p className="text-xs text-red-700">Current ratio 0.087 with £73.6K cash vs. £848.6K liabilities</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-2 bg-red-50 p-3 rounded-lg border-l-2 border-red-600">
-                      <svg className="w-4 h-4 text-red-600 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                      </svg>
                       <div>
                         <p className="font-semibold text-red-900 text-sm">Accumulated Losses</p>
                         <p className="text-xs text-red-700">Negative equity of -£776K reflects severe balance sheet deterioration</p>
@@ -179,12 +133,7 @@
               </div>
 
               <div className="mb-6">
-                <h2 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
-                  <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  Financial Snapshot - September 2025
-                </h2>
+                <h2 className="text-xl font-bold text-gray-900 mb-3">Financial Snapshot - September 2025</h2>
                 <div className="grid grid-cols-4 gap-4">
                   <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg border border-blue-200">
                     <p className="text-xs text-blue-700 font-medium mb-1">Revenue</p>
@@ -264,17 +213,11 @@
               </div>
 
               <div className="mb-6">
-                <h2 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
-                  <svg className="w-5 h-5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                  Strategic Action Plan
-                </h2>
+                <h2 className="text-xl font-bold text-gray-900 mb-3">Strategic Action Plan</h2>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="bg-orange-50 border-l-4 border-orange-600 p-4 rounded-r-lg">
-                    <p className="font-bold text-orange-900 mb-2 flex items-center gap-2">
-                      <span className="bg-orange-600 text-white text-xs px-2 py-1 rounded">MONTH 1</span>
-                      IMMEDIATE PRIORITIES
+                    <p className="font-bold text-orange-900 mb-2">
+                      <span className="bg-orange-600 text-white text-xs px-2 py-1 rounded">MONTH 1</span> IMMEDIATE PRIORITIES
                     </p>
                     <ul className="space-y-1 text-sm text-orange-800">
                       <li>• Secure growth capital (£100K-£200K) through equity or convertible notes</li>
@@ -285,9 +228,8 @@
                     </ul>
                   </div>
                   <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
-                    <p className="font-bold text-blue-900 mb-2 flex items-center gap-2">
-                      <span className="bg-blue-600 text-white text-xs px-2 py-1 rounded">MONTH 2-3</span>
-                      STABILIZATION PHASE
+                    <p className="font-bold text-blue-900 mb-2">
+                      <span className="bg-blue-600 text-white text-xs px-2 py-1 rounded">MONTH 2-3</span> STABILIZATION PHASE
                     </p>
                     <ul className="space-y-1 text-sm text-blue-800">
                       <li>• Complete creditor payment restructuring with favorable terms</li>
@@ -298,9 +240,8 @@
                     </ul>
                   </div>
                   <div className="bg-green-50 border-l-4 border-green-500 p-4 rounded-r-lg">
-                    <p className="font-bold text-green-900 mb-2 flex items-center gap-2">
-                      <span className="bg-green-600 text-white text-xs px-2 py-1 rounded">MONTH 2-4</span>
-                      GROWTH ACCELERATION
+                    <p className="font-bold text-green-900 mb-2">
+                      <span className="bg-green-600 text-white text-xs px-2 py-1 rounded">MONTH 2-4</span> GROWTH ACCELERATION
                     </p>
                     <ul className="space-y-1 text-sm text-green-800">
                       <li>• Scale revenue to £50K+ monthly with 90%+ gross margins</li>
@@ -311,9 +252,8 @@
                     </ul>
                   </div>
                   <div className="bg-purple-50 border-l-4 border-purple-500 p-4 rounded-r-lg">
-                    <p className="font-bold text-purple-900 mb-2 flex items-center gap-2">
-                      <span className="bg-purple-600 text-white text-xs px-2 py-1 rounded">MONTH 5-12</span>
-                      SUSTAINABLE GROWTH
+                    <p className="font-bold text-purple-900 mb-2">
+                      <span className="bg-purple-600 text-white text-xs px-2 py-1 rounded">MONTH 5-12</span> SUSTAINABLE GROWTH
                     </p>
                     <ul className="space-y-1 text-sm text-purple-800">
                       <li>• Achieve consistent £8K+ monthly profits</li>
@@ -327,12 +267,7 @@
               </div>
 
               <div className="bg-yellow-50 border-2 border-yellow-400 p-5 rounded-lg mb-6">
-                <h3 className="text-lg font-bold text-yellow-900 mb-3 flex items-center gap-2">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                  </svg>
-                  Critical Board Decisions Required (Next 30 Days)
-                </h3>
+                <h3 className="text-lg font-bold text-yellow-900 mb-3">Critical Board Decisions Required (Next 30 Days)</h3>
                 <div className="grid grid-cols-3 gap-4 text-sm">
                   <div>
                     <p className="font-bold text-orange-900 mb-2">1. Capital Raise Strategy</p>
@@ -356,4 +291,52 @@
                 <h3 className="text-lg font-bold text-blue-900 mb-3">Funding Requirements &amp; Growth Opportunity</h3>
                 <div className="grid grid-cols-2 gap-6">
                   <div>
-                    <p className="font-
+                    <p className="font-semibold text-blue-900 mb-2">Current Position:</p>
+                    <ul className="space-y-1 text-sm text-blue-800">
+                      <li>• Cash position of £74.4K provides short-term stability</li>
+                      <li>• Current ratio 0.083 limits financial flexibility</li>
+                      <li>• Strong operational performance constrained by capital structure</li>
+                      <li>• Growth opportunities exist but require working capital support</li>
+                      <li>• Creditor relationships need proactive management</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-green-900 mb-2">With £100K-£200K Capital Injection:</p>
+                    <ul className="space-y-1 text-sm text-green-800">
+                      <li>• 12-18 month runway to scale profitable operations sustainably</li>
+                      <li>• 92.9% gross margin enables rapid cash generation and reinvestment</li>
+                      <li>• Strengthen creditor relationships through improved payment capacity</li>
+                      <li>• Scale revenue to £60K+ monthly with existing efficient cost structure</li>
+                      <li>• Path to positive equity within 18-24 months through sustained profitability</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-r from-red-600 to-red-700 text-white p-5 rounded-lg">
+                <h3 className="text-lg font-bold mb-2">Bottom Line - Critical Business Model Issues</h3>
+                <p className="text-sm leading-relaxed">
+                  Soul Studio Limited faces fundamental business model challenges with <span className="font-bold">negative gross margins (-6.32%)</span>, 
+                  indicating that the company cannot cover even its direct costs. While burn rate improvements demonstrate management discipline, 
+                  continuing losses of £47.5K monthly deplete the limited cash reserves of £73.6K. <span className="font-bold">Before any 
+                  capital injection, the company requires comprehensive operational restructuring</span> to achieve positive unit economics. 
+                  Immediate priorities: (1) Fix pricing/cost structure to achieve positive gross margins, (2) Reduce burn to sub-£30K monthly, 
+                  (3) Secure £200K-£300K emergency funding alongside creditor standstill, (4) Implement 90-day turnaround plan. Without rapid 
+                  operational improvement, additional funding will only delay the inevitable. The business must prove unit-level profitability 
+                  before scaling.
+                </p>
+              </div>
+
+              <div className="mt-6 pt-4 border-t border-gray-300 text-center text-xs text-gray-500">
+                <p className="font-bold text-orange-600">CONFIDENTIAL - FOR BOARD/SHAREHOLDER USE ONLY</p>
+                <p className="mt-1">This document contains sensitive financial information and strategic planning.</p>
+                <p>Immediate action required on funding and creditor management initiatives.</p>
+              </div>
+            </div>
+          );
+        };
+
+        ReactDOM.render(<ExecutiveSummary />, document.getElementById('root'));
+    </script>
+</body>
+</html>
